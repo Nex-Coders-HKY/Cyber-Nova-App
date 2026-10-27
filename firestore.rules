@@ -1,0 +1,43 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    function signedIn() { return request.auth != null; }
+    function isAdmin() { return signedIn() && request.auth.token.role == 'admin'; }
+
+    // Public certificate check: exact document ID only (get). Listing and writing are admin-only.
+    match /certificates/{certId} {
+      allow get: if true;
+      allow list, create, update, delete: if isAdmin();
+    }
+
+    // Enrollment applications from the public site. Anyone can submit a valid pending record.
+    // Only admins can read or manage applications.
+    match /applications/{appId} {
+      allow create: if request.resource.data.keys().hasOnly(['fullName','firstName','lastName','email','phone','city','courseId','courseName','fee','experience','status','createdAt'])
+        && request.resource.data.fullName is string
+        && request.resource.data.fullName.size() >= 2 && request.resource.data.fullName.size() <= 120
+        && request.resource.data.email is string
+        && request.resource.data.email.size() <= 120
+        && request.resource.data.email.matches('.+@.+\\..+')
+        && request.resource.data.phone is string
+        && request.resource.data.phone.size() >= 7 && request.resource.data.phone.size() <= 25
+        && request.resource.data.courseName is string
+        && request.resource.data.courseName.size() >= 1 && request.resource.data.courseName.size() <= 120
+        && request.resource.data.fee is number && request.resource.data.fee >= 0
+        && request.resource.data.status == 'pending'
+        && request.resource.data.createdAt == request.time;
+      allow read, update, delete: if isAdmin();
+    }
+
+    // Student profiles: a student can read their own record. Only admins (via server) write.
+    match /students/{uid} {
+      allow read: if signedIn() && (request.auth.uid == uid || isAdmin());
+      allow write: if isAdmin();
+    }
+
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}
