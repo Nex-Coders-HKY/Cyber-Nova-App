@@ -71,8 +71,8 @@ export const Footer: React.FC = () => {
                 </li>
               ))}
               <li className="pt-2">
-                <Link href="/verify" className="text-[#6c63ff] hover:underline font-semibold">
-                  🔍 Verify Certificate
+                <Link href="/login" className="text-[#6c63ff] hover:underline font-semibold">
+                  🎓 Student Login
                 </Link>
               </li>
               <li>
@@ -117,7 +117,7 @@ export const Footer: React.FC = () => {
             <Link href="/privacy-policy" className="hover:text-white transition-colors">Privacy Policy</Link>
             <Link href="/terms" className="hover:text-white transition-colors">Terms & Conditions</Link>
             <Link href="/payment" className="hover:text-white transition-colors">Fee Payment</Link>
-            <Link href="/verify" className="hover:text-white transition-colors">Certificate Verification</Link>
+            <Link href="/login" className="hover:text-white transition-colors">Student Login</Link>
           </div>
         </div>
       </div>

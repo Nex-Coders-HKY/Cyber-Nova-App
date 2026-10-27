@@ -35,8 +35,6 @@
     "typescript": "~5.8.2"
   },
   "allowScripts": {
-    "@vercel/analytics@2.0.1": true,
-    "@firebase/util@1.15.3": true,
-    "protobufjs@7.6.6": true
+    "@vercel/analytics@2.0.1": true
   }
 }

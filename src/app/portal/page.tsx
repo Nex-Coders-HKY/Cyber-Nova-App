@@ -3,6 +3,7 @@
 import React from 'react';
 import { useRouter } from 'next/navigation';
 import { useAuth } from '../../context/AuthContext';
+import MyCertificates from '../../components/MyCertificates';
 import { Navbar } from '../../components/Navbar';
 import { Footer } from '../../components/Footer';
 import {
@@ -141,26 +142,7 @@ export default function StudentPortalPage() {
           </div>
         </div>
 
-        {/* Certificate Section */}
-        <div className="bg-[#13131e] border border-[#2a2a3a] rounded-3xl p-6 sm:p-8 flex flex-col md:flex-row items-center justify-between gap-6">
-          <div className="flex items-center gap-4">
-            <div className="w-12 h-12 rounded-2xl bg-[#43e97b]/15 text-[#02fd88] flex items-center justify-center shrink-0 border border-[#43e97b]/30">
-              <Award className="w-6 h-6" />
-            </div>
-            <div>
-              <h3 className="font-syne font-bold text-white text-lg">Certificate Verification Portal</h3>
-              <p className="text-xs text-[#888899]">Completed your course? Verify or download your official digital certificate.</p>
-            </div>
-          </div>
-
-          <button
-            onClick={() => alert('Certificate verification module active!')}
-            className="px-6 py-3 rounded-xl bg-[#6c63ff] hover:bg-[#5b52e0] text-white text-xs font-bold transition-all shadow-lg shadow-[#6c63ff]/20 shrink-0 flex items-center gap-2 cursor-pointer"
-          >
-            <span>Verify Certificate</span>
-            <ArrowRight className="w-4 h-4" />
-          </button>
-        </div>
+        <MyCertificates />
       </main>
 
       <Footer />

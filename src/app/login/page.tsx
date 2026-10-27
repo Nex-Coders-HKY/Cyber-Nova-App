@@ -70,6 +70,7 @@ function LoginContent() {
   };
 
   return (
+    <div className="pt-28  return (
     <div className="pt-28 pb-20 px-4 sm:px-6 lg:px-8 max-w-md mx-auto">
       <div className="bg-[#13131e] border border-[#2a2a3a] rounded-3xl p-6 sm:p-8 shadow-2xl relative overflow-hidden">
         {/* Ambient Top Glow */}

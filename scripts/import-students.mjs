@@ -5,7 +5,7 @@
 import { readFileSync } from 'node:fs';
 import { cert, initializeApp } from 'firebase-admin/app';
 import { getFirestore } from 'firebase-admin/firestore';
-import XLSX from 'xlsx';
+import * as XLSX from 'xlsx';
 
 const file = process.argv[2];
 const dryRun = process.argv.includes('--dry-run');

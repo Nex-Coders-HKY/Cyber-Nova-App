@@ -144,7 +144,7 @@ function AdminContent() {
     }
   };
 
-  const handleEditClick = (course: Course) => {
+  const handleEditClick  const handleEditClick = (course: Course) => {
     setEditingCourse(course);
     setIsAddingNew(false);
     setFormData({ ...course });

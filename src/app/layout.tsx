@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import CookieBanner from "@/components/CookieBanner";
+import Analytics from "@/components/Analytics";
 import StickyMobileCTA from "@/components/StickyMobileCTA";
 import { AuthProvider } from "@/context/AuthContext";
 import { CoursesProvider } from "@/context/CoursesContext";
@@ -36,6 +37,7 @@ export default function RootLayout({
           </CoursesProvider>
         </AuthProvider>
         <CookieBanner />
+        <Analytics />
         <StickyMobileCTA />
       </body>
     </html>

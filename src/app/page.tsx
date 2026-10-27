@@ -65,7 +65,7 @@ export default function HomePage() {
       <Hero
         onExploreCourses={() => scrollTo('courses')}
         onRegister={() => scrollTo('register')}
-        onVerifyCertificate={() => router.push('/verify')}
+        onVerifyCertificate={() => router.push('/login')}
       />
 
       {/* Courses Section */}
@@ -94,16 +94,16 @@ export default function HomePage() {
             Certificate Verification
           </h2>
           <p className="text-sm sm:text-base text-[#888899] max-w-2xl mx-auto mb-8 leading-relaxed">
-            Verify your course completion certificate authenticity in real time using your unique certificate ID (e.g. <span className="font-mono text-[#818cf8]">CNA-2026-001</span>) or by scanning the QR code printed on your credential.
+            Your course certificates are available in your student portal after you log in.
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link
-              href="/verify"
+              href="/login"
               className="w-full sm:w-auto px-8 py-4 rounded-xl bg-[#6c63ff] hover:bg-[#5b52e0] text-white font-bold text-sm sm:text-base transition-all shadow-xl shadow-[#6c63ff]/35 hover:shadow-[#6c63ff]/50 flex items-center justify-center gap-2"
             >
               <ShieldCheck className="w-5 h-5" />
-              <span>Go to Verification Portal →</span>
+              <span>Go to Student Portal →</span>
             </Link>
             <Link
               href="/payment"
